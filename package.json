@@ -1,7 +1,8 @@
 {
   "name": "node-supercache",
   "version": "1.0.3",
-  "description": "",
+  "description": "An efficient and fast cache operation for API endpoints",
+  "keywords": ["redis", "redlock", "cache"],
   "main": "dist/lib/index.js",
   "types": "dist/lib/index.d.ts",
   "scripts": {
