@@ -1,4 +1,4 @@
-# node-supercache
+# Node SuperCache
 
 
 ### Installation
