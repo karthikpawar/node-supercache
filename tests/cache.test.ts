@@ -9,9 +9,9 @@
  * 
  */
 
-import { Cache, stopRedisHandles } from '../../setup'
-import objectHash = require("object-hash")
-import crypto = require('crypto')
+import { Cache, stopRedisHandles } from './setup'
+import objectHash from "object-hash";
+import * as crypto from 'crypto';
 
 beforeAll(()=>{
     // if(Cache.handles.logger){
@@ -234,7 +234,7 @@ describe('Callback tests', () => {
             return true
         }
 
-        let callList = []
+        let callList: any = []
         let reqID=0
         for(; reqID<10; reqID++){
             callList.push(

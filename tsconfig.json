@@ -4,9 +4,10 @@
     "module": "commonjs",
     "lib": ["es6"],
     "allowJs": true,
+    "declaration": true,
     "checkJs": false,
     "rootDir": ".",
-    "outDir": "./",
+    "outDir": "./dist",
     "strict": true,
     "noImplicitAny": true,
     "esModuleInterop": true,
@@ -22,7 +23,7 @@
   "exclude": [
   ],
   "include": [
-    "./src/*",
-    "./**\\*/"
+    "./lib/*",
+    "./lib"
   ]
 }

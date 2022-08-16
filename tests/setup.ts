@@ -1,14 +1,12 @@
 import Client from "ioredis";
 import Redlock from "redlock";
-import { Cached } from "./src/lock";
-import { Logger } from "./src/logging";
+import { Cached } from "../lib/lock";
+import { Logger } from "../lib/logging";
 
-const redisPath = process.env.REDIS_ENDPOINT_PATH;
-const redisPort = process.env.REDIS_ENDPOINT_PORT
-  ? parseInt(process.env.REDIS_ENDPOINT_PORT)
-  : 6379;
-
-const reditPassword = process.env.REDIS_ENDPOINT_PASSWORD ;
+const redisPath = '127.0.0.1';
+const redisPort = 6379;
+const redisPassword = '';
+const useTls = {}
 
 const redisCommonOptions: any = {
     host: redisPath,
@@ -16,10 +14,10 @@ const redisCommonOptions: any = {
     keepAlive: 1,
 }
 
-if(process.env.REDIS_ENDPOINT_PASSWORD && (process.env.REDIS_ENDPOINT_PASSWORD !== '')){
-    redisCommonOptions.password = process.env.REDIS_ENDPOINT_PASSWORD
-    redisCommonOptions.tls = {}
-}
+// if(useTls && Object.keys(useTls).length !== 0){
+//     redisCommonOptions.password = redisPassword
+//     redisCommonOptions.tls = useTls
+// }
 
 export const redisMain = new Client({
     enableAutoPipelining: true,
