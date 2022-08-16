@@ -109,7 +109,7 @@ export class Cached extends EventEmitter implements Cached_I{
             this.handles.callbackRetryInterval = 200
 
         if(!this.handles?.keyPrefix){
-            this.handles.keyPrefix = 'tmc-apig-cache'
+            this.handles.keyPrefix = 'ns-cache'
         }
         
         if(!this.handles?.debug){
@@ -117,7 +117,7 @@ export class Cached extends EventEmitter implements Cached_I{
         }
 
         if(!this.handles?.logger){
-            this.handles.logger = new Logger('APIG-CACHE-LOGGER', this.handles.debug?'DEBUG': 'LIVE')
+            this.handles.logger = new Logger('NS-CACHE-LOGGER', this.handles.debug?'DEBUG': 'LIVE')
         }
 
         this.setMaxListeners(0)
