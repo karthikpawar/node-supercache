@@ -11,7 +11,7 @@
 1. Setup individual Redis connections for Publishing, Subscribing and general activity.
 
 
-```
+```typescript
 import { Cached } from 'node-supercache';
 import Client from "ioredis";
 import Redlock from "redlock";
@@ -47,7 +47,7 @@ const redisPublisher = new Client({
 2. Initialize Redlock instance with desired settings and set of Redis nodes(3 for optimal performance) with a retry count as 0.
 
 
-```
+```typescript
 const redlock = new Redlock([redisMain], {
   driftFactor: 0.01,
   retryCount: 0,
@@ -59,7 +59,7 @@ const redlock = new Redlock([redisMain], {
 ```
 3. Initialise node-supercache Cache instance with the above Redis connections and Redlock instance.
 
-```
+```typescript
 export const Cache = new Cached({
   redisMain: redisMain,
   redisPublisher: redisPublisher,
@@ -73,7 +73,7 @@ export const Cache = new Cached({
 
 4. Setup Express HTTP server with a simple API endpoint which return a Date string.
 
-```
+```typescript
 
 const express = require("express");
 import objectHash from 'object-hash';
@@ -99,7 +99,7 @@ const unCachedHandele = async (req: any, res: any, next: any) => {
 
 ``Note: Currently the endpoint handler returned by the Caching mod needs an extra handle to resolve the request after processing.``
 
-```
+```typescript
 app.get('/api/v1/un-cached', unCachedHandele)
 
 app.get('/api/v1/cached',
